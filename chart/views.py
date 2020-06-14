@@ -2,7 +2,8 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from .models import Passenger
 import json
-from django.db.models import Count, Q
+from django.db.models import Count, Q, Sum
+
 
 # Create your views here.
 
@@ -16,10 +17,9 @@ def ticket_class_view_1(request):  # 방법 1
     dataset = Passenger.objects \
         .values('ticket_class') \
         .annotate(
-        survived_count=Count('ticket_class',
-                             filter=Q(survived=True)),
-        not_survived_count=Count('ticket_class',
-                                 filter=Q(survived=False))) \
+        survived_count=Count('ticket_class', filter=Q(survived=True)),
+        not_survived_count=Count('ticket_class', filter=Q(survived=False)),
+        survier_rate=Sum('ticket_class', filter=Q(survived=True)) / Sum('ticket_class') * 100) \
         .order_by('ticket_class')
     return render(request, 'ticket_class_1.html', {'dataset': dataset})
 
@@ -69,62 +69,56 @@ def ticket_class_view_3(request):  # 방법 3
 
     # 리스트 3종에 형식화된 값을 등록
     for entry in dataset:
-        categories.append('%s Class' % entry['ticket_class'])  # for xAxis
+        categories.append('%s 등석' % entry['ticket_class'])  # for xAxis
         survived_series_data.append(entry['survived_count'])  # for series named 'Survived'
         not_survived_series_data.append(entry['not_survived_count'])  # for series named 'Not survived'
 
     survived_series = {
-        'name': 'Survived',
+        'name': '생존',
+        'yAxis': 1,
         'data': survived_series_data,
-        'color': 'green'
+        'color': 'green',
+        'tooltip': {'valueSuffix': ' 명'}
     }
     not_survived_series = {
-        'name': 'Survived',
+        'name': '비 생존',
+        'yAxis': 1,
         'data': not_survived_series_data,
-        'color': 'red'
+        'color': 'red',
+        'tooltip': {'valueSuffix': ' 명'}
+    }
+    survived_rate = {
+        'type': 'spline',
+        'name': '생존율',
+        'data': [61.91950464396285, 42.96028880866426, 25.52891396332863],
+        'tooltip': {'valueSuffix': ' %'}
     }
 
     chart = {
-        'chart': {'type': 'column'},
-        'title': {'text': 'Titanic Survivors by Ticket Class'},
+        'chart': {'type': 'column', 'zoomType': 'xy'},
+        'title': {'text': '좌석 등급에 따른 타이타닉 생존/비 생존 인원 및 생존율'},
         'xAxis': {'categories': categories},
-        'series': [survived_series, not_survived_series]
+        'yAxis': [{'labels': {'format': '{value} %'}, 'style': {'color': 'blue'}, 'title': {'text': '생존율', 'style': {'color': 'blue'}}}
+            ,{'labels': {'format': '{value} 명'}, 'style': {'color': 'black'}, 'opposite': 'true', 'title': {'text': '인원', 'style': {'color': 'black'}}}],
+        'tooltip': {'shared': 'true'},
+        'legend': {'layout': 'vertical', 'align': 'left', 'x': 120, 'verticalAlign': 'top', 'y': 100, 'floating': 'true'},
+        'series': [survived_series, not_survived_series, survived_rate]
     }
     dump = json.dumps(chart)
 
     return render(request, 'ticket_class_3.html', {'chart': dump})
 
-def covid1(request):  # 방법 3
+def covid1(request):
     dataset = Passenger.objects \
         .values('ticket_class') \
-        .annotate(survived_count=Count('ticket_class', filter=Q(survived=True)),
-                  not_survived_count=Count('ticket_class', filter=Q(survived=False))) \
+        .annotate(
+        survived_count=Count('ticket_class',
+                             filter=Q(survived=True)),
+        not_survived_count=Count('ticket_class',
+                                 filter=Q(survived=False))) \
         .order_by('ticket_class')
 
-    # 빈 리스트 3종 준비 (series 이름 뒤에 '_data' 추가)
-    categories = list()  # for xAxis
-    confirmer_series_data = list()  # for series named 'Survived'
-
-    # 리스트 3종에 형식화된 값을 등록
-    for entry in dataset:
-        categories.append('%s Class' % entry['ticket_class'])  # for xAxis
-        confirmer_series_data.append(entry['survived_count'])  # for series named 'Survived'
-
-    survived_series = {
-        'name': 'Confirmer',
-        'data': confirmer_series_data,
-        'color': 'green'
-    }
-
-    chart = {
-        'chart': {'type': 'column'},
-        'title': {'text': '국가별 코로나-19 확진자 발생율'},
-        'xAxis': {'categories': categories},
-        'series': [survived_series]
-    }
-    dump = json.dumps(chart)
-
-    return render(request, 'covid1.html', {'chart': dump})
+    return render(request, 'covid1.html', {'dataset': dataset})
 
 def json_example(request):  # 방법 4
     return render(request, 'json_example.html')

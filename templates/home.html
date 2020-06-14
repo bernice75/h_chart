@@ -2,18 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.18.0/css/mdb.min.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="/static/style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
   <title>Django Highcharts Example</title>
 </head>
 <body>
-  <ul>
-    <li><a href="{% url 'world_population' %}">World Population</a></li>
-    <li><a href="{% url 'ticket_class_view_1' %}">Ticket Class #1</a></li>
-    <li><a href="{% url 'ticket_class_view_2' %}">Ticket Class #2</a></li>
-    <li><a href="{% url 'ticket_class_view_3' %}">Ticket Class #3</a></li>
-    <li><a href="{% url 'json_example' %}">JSON Example</a></li>
-    <li><a href="{% url 'covid1' %}">COVID-19</a></li>
-  </ul>
 
+  <div class="container">
+        <nav class="navbar navbar-dark indigo navbar-expand-md bg-faded justify-content-center">
+            <a href="/" class="navbar-brand d-flex w-50 mr-auto">장고 앱 모음</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
+                <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
+                    <li class="nav-item"><a href="{% url 'world_population' %}" class="nav-link">World Population</a></li>
+                    <li class="nav-item"><a href="{% url 'ticket_class_view_1' %}" class="nav-link">Ticket Class #1</a></li>
+                    <li class="nav-item"><a href="{% url 'ticket_class_view_2' %}" class="nav-link">Ticket Class #2</a></li>
+                    <li class="nav-item"><a href="{% url 'ticket_class_view_3' %}" class="nav-link">Ticket Class #3</a></li>
+                    <li class="nav-item"><a href="{% url 'json_example' %}" class="nav-link">JSON Example</a></li>
+                    <li class="nav-item"><a href="{% url 'covid1' %}" class="nav-link">COVID-19</a></li>
+                 </ul>
+            </div>
+        </nav>
+  </div>
+  <p></p>
+  <p></p>
   <p>예제 코드는 <a href="https://simpleisbetterthancomplex.com/tutorial/2018/04/03/how-to-integrate-highcharts-js-with-django.html">How to Integrate Highcharts.js with Django</a> 기사에서 가져왔습니다.</p>
   <p>예제 코드는 <a href="https://github.com/sibtc/django-highcharts-example">GitHub</a>에서 다운로드 가능합니다.</p>
 </body>
