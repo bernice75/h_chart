@@ -94,6 +94,38 @@ def ticket_class_view_3(request):  # 방법 3
 
     return render(request, 'ticket_class_3.html', {'chart': dump})
 
+def covid1(request):  # 방법 3
+    dataset = Passenger.objects \
+        .values('ticket_class') \
+        .annotate(survived_count=Count('ticket_class', filter=Q(survived=True)),
+                  not_survived_count=Count('ticket_class', filter=Q(survived=False))) \
+        .order_by('ticket_class')
+
+    # 빈 리스트 3종 준비 (series 이름 뒤에 '_data' 추가)
+    categories = list()  # for xAxis
+    confirmer_series_data = list()  # for series named 'Survived'
+
+    # 리스트 3종에 형식화된 값을 등록
+    for entry in dataset:
+        categories.append('%s Class' % entry['ticket_class'])  # for xAxis
+        confirmer_series_data.append(entry['survived_count'])  # for series named 'Survived'
+
+    survived_series = {
+        'name': 'Confirmer',
+        'data': confirmer_series_data,
+        'color': 'green'
+    }
+
+    chart = {
+        'chart': {'type': 'column'},
+        'title': {'text': '국가별 코로나-19 확진자 발생율'},
+        'xAxis': {'categories': categories},
+        'series': [survived_series]
+    }
+    dump = json.dumps(chart)
+
+    return render(request, 'covid1.html', {'chart': dump})
+
 def json_example(request):  # 방법 4
     return render(request, 'json_example.html')
 
