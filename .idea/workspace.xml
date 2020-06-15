@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ccad75e4-1b9d-4841-bdbd-e72bb549634f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/905d2c9d-65a3-4f63-ad68-2718bfdd723e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/905d2c9d-65a3-4f63-ad68-2718bfdd723e.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chart/migrations/0003_covid19_1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chart/migrations/0004_covid1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chart/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/chart/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/ticket_class_3.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ticket_class.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +70,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/김미림/DataScience/source_code/장고에서_차트_그리는_방법.md" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/chart/migrations" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -74,12 +80,13 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\work\h_chart\chart\migrations" />
+      <recent name="C:\work\h_chart" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\work\h_chart\templates" />
       <recent name="C:\work\h_chart\chart\templates\chart" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\work\h_chart" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -122,7 +129,11 @@
       <workItem from="1592109957677" duration="10889000" />
       <workItem from="1592186090995" duration="209000" />
       <workItem from="1592186310032" duration="2427000" />
-      <workItem from="1592212873823" duration="3304000" />
+      <workItem from="1592212873823" duration="4826000" />
+      <workItem from="1592219559852" duration="683000" />
+      <workItem from="1592220443522" duration="1469000" />
+      <workItem from="1592221923375" duration="376000" />
+      <workItem from="1592222308677" duration="288000" />
     </task>
     <servers />
   </component>
@@ -154,6 +165,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="845" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1591614073981" />
+    <state x="515" y="233" width="322" height="226" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1592221967543">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="515" y="233" width="322" height="226" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1280.680@0.0.1280.680" timestamp="1592221967543" />
     <state x="345" y="169" key="com.intellij.ide.util.TipDialog" timestamp="1592212872975">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
