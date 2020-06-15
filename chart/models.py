@@ -31,7 +31,11 @@ class Passenger(models.Model):  # 승객 모델
     def __str__(self):
         return self.name
 
-class Covid19(models.Model) :
-    country = models.CharField(max_length=100, blank=True)              # 나라
-    date = models.DateTimeField()                                       # 날짜
-    percapita = models.FloatField(null=True)                            #
+class Covid19_1(models.Model) :
+    date = models.DateTimeField()
+    China = models.FloatField(null=True)
+    France = models.FloatField(null=True)
+    Germany = models.FloatField(null=True)
+    Korea_South = models.FloatField(null=True)
+    US = models.FloatField(null=True)
+    United_Kingdom = models.FloatField(null=True)

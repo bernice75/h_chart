@@ -2,13 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ccad75e4-1b9d-4841-bdbd-e72bb549634f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/chart/migrations/0004_covid1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/905d2c9d-65a3-4f63-ad68-2718bfdd723e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/905d2c9d-65a3-4f63-ad68-2718bfdd723e.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chart/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/chart/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chart/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/chart/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chart/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/chart/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/covid1.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/covid1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ticket_class_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ticket_class_1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ticket_class_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ticket_class_2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/json_example.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/ticket_class_1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/ticket_class_2.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/ticket_class_3.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ticket_class_3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/world_population.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,21 +49,14 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="SQLite - db.sqlite3" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-        <item name="chart_passenger: table" type="3d80ac25:SqliteImplModel$Table" />
-      </path>
     </expand>
     <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -87,12 +87,12 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\work\h_chart" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\work\h_chart\templates" />
       <recent name="C:\work\h_chart\chart\templates\chart" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\work\h_chart" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -132,7 +132,9 @@
       <workItem from="1591785143316" duration="9362000" />
       <workItem from="1591871322691" duration="6000" />
       <workItem from="1592102724463" duration="6068000" />
-      <workItem from="1592109957677" duration="10580000" />
+      <workItem from="1592109957677" duration="10889000" />
+      <workItem from="1592186090995" duration="209000" />
+      <workItem from="1592186310032" duration="1291000" />
     </task>
     <servers />
   </component>
@@ -164,20 +166,9 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="845" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1591614073981" />
-    <state x="345" y="169" key="com.intellij.ide.util.TipDialog" timestamp="1592109973364">
+    <state x="345" y="169" key="com.intellij.ide.util.TipDialog" timestamp="1592186330774">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="345" y="169" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1592109973364" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/templates/ticket_class_1.html</url>
-          <line>19</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="345" y="169" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1592186330774" />
   </component>
 </project>

@@ -1,6 +1,6 @@
 from django.http import JsonResponse
 from django.shortcuts import render
-from .models import Passenger
+from .models import Passenger, Covid19_1
 import json
 from django.db.models import Count, Q, Sum
 
@@ -10,52 +10,7 @@ from django.db.models import Count, Q, Sum
 def home(request):
     return render(request, 'home.html')
 
-def world_population(request):
-    return render(request, 'world_population.html')
-
-def ticket_class_view_1(request):  # 방법 1
-    dataset = Passenger.objects \
-        .values('ticket_class') \
-        .annotate(
-        survived_count=Count('ticket_class', filter=Q(survived=True)),
-        not_survived_count=Count('ticket_class', filter=Q(survived=False)),
-        survier_rate=Sum('ticket_class', filter=Q(survived=True)) / Sum('ticket_class') * 100) \
-        .order_by('ticket_class')
-    return render(request, 'ticket_class_1.html', {'dataset': dataset})
-
-
- # dataset = [
- #   {'ticket_class': 1, 'survived_count': 200, 'not_survived_count': 123},
- #   {'ticket_class': 2, 'survived_count': 119, 'not_survived_count': 158},
- #   {'ticket_class': 3, 'survived_count': 181, 'not_survived_count': 528}
- # ]
-
-def ticket_class_view_2(request):  # 방법 2
-    dataset = Passenger.objects \
-        .values('ticket_class') \
-        .annotate(survived_count=Count('ticket_class', filter=Q(survived=True)),
-                  not_survived_count=Count('ticket_class', filter=Q(survived=False))) \
-        .order_by('ticket_class')
-
-    # 빈 리스트 3종 준비
-    categories = list()  # for xAxis
-    survived_series = list()  # for series named 'Survived'
-    not_survived_series = list()  # for series named 'Not survived'
-
-    # 리스트 3종에 형식화된 값을 등록
-    for entry in dataset:
-        categories.append('%s Class' % entry['ticket_class'])  # for xAxis
-        survived_series.append(entry['survived_count'])  # for series named 'Survived'
-        not_survived_series.append(entry['not_survived_count'])  # for series named 'Not survived'
-
-    # json.dumps() 함수로 리스트 3종을 JSON 데이터 형식으로 반환
-    return render(request, 'ticket_class_2.html', {
-        'categories': json.dumps(categories),
-        'survived_series': json.dumps(survived_series),
-        'not_survived_series': json.dumps(not_survived_series)
-    })
-
-def ticket_class_view_3(request):  # 방법 3
+def ticket_class_view(request):
     dataset = Passenger.objects \
         .values('ticket_class') \
         .annotate(survived_count=Count('ticket_class', filter=Q(survived=True)),
@@ -98,7 +53,7 @@ def ticket_class_view_3(request):  # 방법 3
         'chart': {'type': 'column', 'zoomType': 'xy'},
         'title': {'text': '좌석 등급에 따른 타이타닉 생존/비 생존 인원 및 생존율'},
         'xAxis': {'categories': categories},
-        'yAxis': [{'labels': {'format': '{value} %'}, 'style': {'color': 'blue'}, 'title': {'text': '생존율', 'style': {'color': 'blue'}}}
+        'yAxis': [{'labels': {'format': '{value} %', 'style': {'color': 'blue'}}, 'title': {'text': '생존율', 'style': {'color': 'blue'}}}
             ,{'labels': {'format': '{value} 명'}, 'style': {'color': 'black'}, 'opposite': 'true', 'title': {'text': '인원', 'style': {'color': 'black'}}}],
         'tooltip': {'shared': 'true'},
         'legend': {'layout': 'vertical', 'align': 'left', 'x': 120, 'verticalAlign': 'top', 'y': 100, 'floating': 'true'},
@@ -109,59 +64,80 @@ def ticket_class_view_3(request):  # 방법 3
     return render(request, 'ticket_class_3.html', {'chart': dump})
 
 def covid1(request):
-    dataset = Passenger.objects \
-        .values('ticket_class') \
-        .annotate(
-        survived_count=Count('ticket_class',
-                             filter=Q(survived=True)),
-        not_survived_count=Count('ticket_class',
-                                 filter=Q(survived=False))) \
-        .order_by('ticket_class')
+    china = Covid19_1.objects.values('China').annotate(china_count=Count('China')).order_by('date')
+    france = Covid19_1.objects.values('France').annotate(france_count=Count('France')).order_by('date')
+    germany = Covid19_1.objects.values('Germany').annotate(germany_count=Count('Germany')).order_by('date')
+    korea_South = Covid19_1.objects.values('Korea_South').annotate(korea_South_count=Count('Korea_South')).order_by('date')
+    us = Covid19_1.objects.values('US').annotate(us_count=Count('US')).order_by('date')
+    united_kingdom = Covid19_1.objects.values('United_Kingdom').annotate(united_kingdom_count=Count('United_Kingdom')).order_by('date')
 
-    return render(request, 'covid1.html', {'dataset': dataset})
 
-def json_example(request):  # 방법 4
-    return render(request, 'json_example.html')
+    china_data = list()
+    france_data = list()
+    germany_data = list()
+    korea_South_data = list()
+    us_data = list()
+    united_kingdom_data = list()
+    date = list()
 
-def chart_data(request):  # 방법 4
-    dataset = Passenger.objects \
-        .values('embarked') \
-        .exclude(embarked='') \
-        .annotate(total=Count('id')) \
-        .order_by('-total')
-    #  [
-    #    {'embarked': 'S', 'total': 914}
-    #    {'embarked': 'C', 'total': 270},
-    #    {'embarked': 'Q', 'total': 123},
-    #  ]
 
-    # # 탑승_항구 상수 정의
-    # CHERBOURG = 'C'
-    # QUEENSTOWN = 'Q'
-    # SOUTHAMPTON = 'S'
-    # PORT_CHOICES = (
-    #     (CHERBOURG, 'Cherbourg'),
-    #     (QUEENSTOWN, 'Queenstown'),
-    #     (SOUTHAMPTON, 'Southampton'),
-    # )
-    port_display_name = dict()
-    for port_tuple in Passenger.PORT_CHOICES:
-        port_display_name[port_tuple[0]] = port_tuple[1]
-    # port_display_name = {'C': 'Cherbourg', 'Q': 'Queenstown', 'S': 'Southampton'}
+    for entry in date:
+        date.append(entry['date'])
+    for entry in china:
+        china_data.append(entry['china_count'])
+    for entry in france:
+        france_data.append(entry['france_count'])
+    for entry in germany:
+        germany_data.append(entry['germany_count'])
+    for entry in korea_South:
+        korea_South_data.append(entry['korea_South_count'])
+    for entry in us:
+        us_data.append(entry['us_count'])
+    for entry in united_kingdom:
+        united_kingdom_data.append(entry['united_kingdom_count'])
+
+    china_rate = {
+        'name': 'China',
+        'data': china_data,
+        'color': '#089099'
+    }
+    france_rate = {
+        'name': 'France',
+        'data': france_data,
+        'color': '#7CCBA2'
+    }
+    germany_rate = {
+        'name': 'Germany',
+        'data': germany_data,
+        'color': '#FCDE74'
+    }
+    korea_South_rate = {
+        'name': 'Korea, South',
+        'data': korea_South_data,
+        'color': '#045275'
+    }
+    us_rate = {
+        'name': 'US',
+        'data': us_data,
+        'color': '#DC3977'
+    }
+    united_kingdom_rate = {
+        'name': 'United Kingdom',
+        'data': united_kingdom_data,
+        'color': '#7C1D6F'
+    }
 
     chart = {
-        'chart': {'type': 'pie'},
-        'title': {'text': 'Number of Titanic Passengers by Embarkation Port'},
-        'series': [{
-            'name': 'Embarkation Port',
-            'data': list(map(
-                lambda row: {'name': port_display_name[row['embarked']], 'y': row['total']},
-                dataset))
-            # 'data': [ {'name': 'Southampton', 'y': 914},
-            #           {'name': 'Cherbourg', 'y': 270},
-            #           {'name': 'Queenstown', 'y': 123}]
-        }]
+        'chart': {'type': 'spline'},
+        'title': {'text': '국가별 COVID-19 확진자 발생율'},
+        'subtitle': {'text': 'Source: Johns Hopkins University Center for Systems Science and Engineering'},
+        'xAxis': {'date': date, 'type': 'datetime'},
+        'yAxis': {'labels': {'format': '{value} 건/백만명', 'style': {'color': 'blue'}},
+               'title': {'text': '# of Cases per 1,000,000 People', 'style': {'color': 'blue'}}},
+        'tooltip': {'shared': 'true'},
+        'plotOptions': {'spline': {'lineWidth': 3, 'states': {'hover': {'lineWidth': 5}}}},
+        'series': [china_rate, france_rate, germany_rate, korea_South_rate, us_rate, united_kingdom_rate]
     }
-    # [list(map(lambda))](https://wikidocs.net/64)
+    dump = json.dumps(chart)
 
-    return JsonResponse(chart)
+    return render(request, 'covid1.html', {'chart': dump})
