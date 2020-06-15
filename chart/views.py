@@ -21,12 +21,15 @@ def ticket_class_view(request):
     categories = list()  # for xAxis
     survived_series_data = list()  # for series named 'Survived'
     not_survived_series_data = list()  # for series named 'Not survived'
+    survived_rate_data = list()
 
     # 리스트 3종에 형식화된 값을 등록
     for entry in dataset:
         categories.append('%s 등석' % entry['ticket_class'])  # for xAxis
         survived_series_data.append(entry['survived_count'])  # for series named 'Survived'
         not_survived_series_data.append(entry['not_survived_count'])  # for series named 'Not survived'
+        survived_rate_data.append(entry['survived_count'] / (entry['survived_count']+entry['not_survived_count'])*100)
+
 
     survived_series = {
         'name': '생존',
@@ -45,7 +48,8 @@ def ticket_class_view(request):
     survived_rate = {
         'type': 'spline',
         'name': '생존율',
-        'data': [61.91950464396285, 42.96028880866426, 25.52891396332863],
+        # 'data': [61.91950464396285, 42.96028880866426, 25.52891396332863],
+        'data': survived_rate_data,
         'tooltip': {'valueSuffix': ' %'}
     }
 
