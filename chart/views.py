@@ -66,12 +66,12 @@ def ticket_class_view(request):
     return render(request, 'ticket_class.html', {'chart': dump})
 
 def covid1(request):
-    china = Covid19_1.objects.values('China').annotate(china_count=Count('China')).order_by('date')
-    france = Covid19_1.objects.values('France').annotate(france_count=Count('France')).order_by('date')
-    germany = Covid19_1.objects.values('Germany').annotate(germany_count=Count('Germany')).order_by('date')
-    korea_South = Covid19_1.objects.values('Korea_South').annotate(korea_South_count=Count('Korea_South')).order_by('date')
-    us = Covid19_1.objects.values('US').annotate(us_count=Count('US')).order_by('date')
-    united_kingdom = Covid19_1.objects.values('United_Kingdom').annotate(united_kingdom_count=Count('United_Kingdom')).order_by('date')
+    china = Covid19_1.objects.values('China').annotate(china_count=Count('China')).order_by('Date')
+    france = Covid19_1.objects.values('France').annotate(france_count=Count('France')).order_by('Date')
+    germany = Covid19_1.objects.values('Germany').annotate(germany_count=Count('Germany')).order_by('Date')
+    korea_South = Covid19_1.objects.values('Korea_South').annotate(korea_South_count=Count('Korea_South')).order_by('Date')
+    us = Covid19_1.objects.values('US').annotate(us_count=Count('US')).order_by('Date')
+    united_kingdom = Covid19_1.objects.values('United_Kingdom').annotate(united_kingdom_count=Count('United_Kingdom')).order_by('Date')
 
 
     china_data = list()
@@ -84,7 +84,7 @@ def covid1(request):
 
 
     for entry in date:
-        date.append(entry['date'])
+        date.append(entry['Date'])
     for entry in china:
         china_data.append(entry['china_count'])
     for entry in france:
