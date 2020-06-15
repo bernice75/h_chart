@@ -48,7 +48,6 @@ def ticket_class_view(request):
     survived_rate = {
         'type': 'spline',
         'name': '생존율',
-        # 'data': [61.91950464396285, 42.96028880866426, 25.52891396332863],
         'data': survived_rate_data,
         'tooltip': {'valueSuffix': ' %'}
     }
