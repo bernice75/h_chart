@@ -2,19 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ccad75e4-1b9d-4841-bdbd-e72bb549634f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/905d2c9d-65a3-4f63-ad68-2718bfdd723e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/905d2c9d-65a3-4f63-ad68-2718bfdd723e.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/migrations/0003_covid19_1.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/migrations/0004_confirmer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/migrations/0005_covid19_2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/migrations/0006_recorver.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/migrations/0007_covid19_3.py" beforeDir="false" afterPath="$PROJECT_DIR$/chart/migrations/0007_covid19_3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/migrations/0008_death.py" beforeDir="false" afterPath="$PROJECT_DIR$/chart/migrations/0008_death.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chart/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/chart/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chart/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/chart/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chart/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/chart/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/covid1.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/covid1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/covid2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/covid2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/covid3.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/covid3.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/ticket_class.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ticket_class.html" afterDir="false" />
     </list>
@@ -56,8 +50,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -78,7 +72,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -88,14 +82,14 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\work\h_chart" />
+      <recent name="C:\work\h_chart\templates" />
+      <recent name="C:\work\h_chart\chart\migrations" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\work\h_chart\templates" />
       <recent name="C:\work\h_chart\chart\templates\chart" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\work\h_chart\templates" />
-      <recent name="C:\work\h_chart\chart\migrations" />
-      <recent name="C:\work\h_chart" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -145,7 +139,8 @@
       <workItem from="1592222308677" duration="8797000" />
       <workItem from="1592267556837" duration="3734000" />
       <workItem from="1592271343859" duration="237000" />
-      <workItem from="1592271600863" duration="3388000" />
+      <workItem from="1592271600863" duration="3465000" />
+      <workItem from="1592299584211" duration="19313000" />
     </task>
     <servers />
   </component>
@@ -181,9 +176,9 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="515" y="233" width="322" height="226" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1280.680@0.0.1280.680" timestamp="1592221967543" />
-    <state x="345" y="169" key="com.intellij.ide.util.TipDialog" timestamp="1592267556344">
+    <state x="345" y="169" key="com.intellij.ide.util.TipDialog" timestamp="1592299584061">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="345" y="169" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1592267556344" />
+    <state x="345" y="169" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1592299584061" />
   </component>
 </project>

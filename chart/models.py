@@ -57,3 +57,13 @@ class Covid19_3(models.Model) :
      US = models.FloatField(null=True)
      France = models.FloatField(null=True)
      China = models.FloatField(null=True)
+
+
+class Percapita(models.Model):
+    Date = models.DateTimeField()
+    Korea_South = models.FloatField(null=True)
+    Germany = models.FloatField(null=True)
+    United_Kingdom = models.FloatField(null=True)
+    US = models.FloatField(null=True)
+    France = models.FloatField(null=True)
+    China = models.FloatField(null=True)
