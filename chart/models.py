@@ -33,27 +33,27 @@ class Passenger(models.Model):  # 승객 모델
 
 class Covid19_1(models.Model) :
     Date = models.DateTimeField()
-    China = models.FloatField(null=True)
-    France = models.FloatField(null=True)
-    Germany = models.FloatField(null=True)
     Korea_South = models.FloatField(null=True)
-    US = models.FloatField(null=True)
+    Germany = models.FloatField(null=True)
     United_Kingdom = models.FloatField(null=True)
+    US = models.FloatField(null=True)
+    France = models.FloatField(null=True)
+    China = models.FloatField(null=True)
 
 class Covid19_2(models.Model) :
     Date = models.DateTimeField()
-    China = models.FloatField(null=True)
-    France = models.FloatField(null=True)
-    Germany = models.FloatField(null=True)
     Korea_South = models.FloatField(null=True)
-    US = models.FloatField(null=True)
-    United_Kingdom = models.FloatField(null=True)
-#
-class Covid19_3(models.Model):
-    Date = models.DateTimeField()
-    China = models.FloatField(null=True)
-    France = models.FloatField(null=True)
     Germany = models.FloatField(null=True)
-    Korea_South = models.FloatField(null=True)
-    US = models.FloatField(null=True)
     United_Kingdom = models.FloatField(null=True)
+    US = models.FloatField(null=True)
+    France = models.FloatField(null=True)
+    China = models.FloatField(null=True)
+
+class Covid19_3(models.Model) :
+     Date = models.DateTimeField()
+     Korea_South = models.FloatField(null=True)
+     Germany = models.FloatField(null=True)
+     United_Kingdom = models.FloatField(null=True)
+     US = models.FloatField(null=True)
+     France = models.FloatField(null=True)
+     China = models.FloatField(null=True)

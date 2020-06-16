@@ -20,12 +20,12 @@ def add_covid1(apps, schema_editor):
         for entry in reader:                            # 판독기에 대하여 반복 처리
             Covid_confirmer.objects.create(                       # DB 행 생성
                 Date = entry[Date],
-                China = entry[China],
-                France = entry[France],
+	            Korea_South = entry[Korea_South],
                 Germany = entry[Germany],
-                Korea_South = entry[Korea_South],
+                United_Kingdom = entry[United_Kingdom],
                 US = entry[US],
-                United_Kingdom = entry[United_Kingdom]
+                France = entry[France],
+                China = entry[China]
             )
 
 class Migration(migrations.Migration):

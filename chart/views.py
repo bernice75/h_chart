@@ -1,8 +1,9 @@
 from django.http import JsonResponse
 from django.shortcuts import render
-from .models import Passenger, Covid19_1
+from .models import Passenger, Covid19_1, Covid19_2, Covid19_3
 import json
-from django.db.models import Count, Q, Sum
+import arrow
+from django.db.models import Count, Q
 
 
 # Create your views here.
@@ -66,80 +67,253 @@ def ticket_class_view(request):
     return render(request, 'ticket_class.html', {'chart': dump})
 
 def covid1(request):
-    china = Covid19_1.objects.values('China').annotate(china_count=Count('China')).order_by('Date')
-    france = Covid19_1.objects.values('France').annotate(france_count=Count('France')).order_by('Date')
-    germany = Covid19_1.objects.values('Germany').annotate(germany_count=Count('Germany')).order_by('Date')
-    korea_South = Covid19_1.objects.values('Korea_South').annotate(korea_South_count=Count('Korea_South')).order_by('Date')
-    us = Covid19_1.objects.values('US').annotate(us_count=Count('US')).order_by('Date')
-    united_kingdom = Covid19_1.objects.values('United_Kingdom').annotate(united_kingdom_count=Count('United_Kingdom')).order_by('Date')
+    korea_South = Covid19_1.objects.values('Korea_South').order_by('Date')
+    germany = Covid19_1.objects.values('Germany').order_by('Date')
+    united_kingdom = Covid19_1.objects.values('United_Kingdom').order_by('Date')
+    us = Covid19_1.objects.values('US').order_by('Date')
+    france = Covid19_1.objects.values('France').order_by('Date')
+    china = Covid19_1.objects.values('China').order_by('Date')
 
-
-    china_data = list()
-    france_data = list()
-    germany_data = list()
+    date_data = list()
     korea_South_data = list()
-    us_data = list()
+    germany_data = list()
     united_kingdom_data = list()
-    date = list()
+    us_data = list()
+    france_data = list()
+    china_data = list()
 
 
-    for entry in date:
-        date.append(entry['Date'])
-    for entry in china:
-        china_data.append(entry['china_count'])
-    for entry in france:
-        france_data.append(entry['france_count'])
-    for entry in germany:
-        germany_data.append(entry['germany_count'])
+    for entry in date_data:
+        date_data.append(entry['Date'])
     for entry in korea_South:
-        korea_South_data.append(entry['korea_South_count'])
-    for entry in us:
-        us_data.append(entry['us_count'])
+        korea_South_data.append(entry['Korea_South'])
+    for entry in germany:
+        germany_data.append(entry['Germany'])
     for entry in united_kingdom:
-        united_kingdom_data.append(entry['united_kingdom_count'])
+        united_kingdom_data.append(entry['United_Kingdom'])
+    for entry in us:
+        us_data.append(entry['US'])
+    for entry in france:
+        france_data.append(entry['France'])
+    for entry in china:
+        china_data.append(entry['China'])
 
-    china_rate = {
-        'name': 'China',
+    korea_South_rate = {
+        'name': 'Korea, South',
         'data': china_data,
-        'color': '#089099'
-    }
-    france_rate = {
-        'name': 'France',
-        'data': france_data,
-        'color': '#7CCBA2'
+        'pointInterval': 24 * 3600 * 1200,
+        'color': '#045275'
     }
     germany_rate = {
         'name': 'Germany',
-        'data': germany_data,
+        'data': france_data,
+        'pointInterval': 24 * 3600 * 1200,
         'color': '#FCDE74'
-    }
-    korea_South_rate = {
-        'name': 'Korea, South',
-        'data': korea_South_data,
-        'color': '#045275'
-    }
-    us_rate = {
-        'name': 'US',
-        'data': us_data,
-        'color': '#DC3977'
     }
     united_kingdom_rate = {
         'name': 'United Kingdom',
-        'data': united_kingdom_data,
+        'data': germany_data,
+        'pointInterval': 24 * 3600 * 1200,
         'color': '#7C1D6F'
+    }
+    us_rate = {
+        'name': 'US',
+        'data': united_kingdom_data,
+        'pointInterval': 24 * 3600 * 1200,
+        'color': '#DC3977'
+    }
+    france_rate = {
+        'name': 'France',
+        'data': us_data,
+        'pointInterval': 24 * 3600 * 1200,
+        'color': '#7CCBA2'
+    }
+    china_rate = {
+        'name': 'China',
+        'data': korea_South_data,
+        'pointInterval': 24 * 3600 * 1200,
+        'color': '#089099',
     }
 
     chart = {
         'chart': {'type': 'spline'},
         'title': {'text': '국가별 COVID-19 확진자 발생율'},
-        'subtitle': {'text': 'Source: Johns Hopkins University Center for Systems Science and Engineering'},
-        'xAxis': {'date': date, 'type': 'datetime'},
-        'yAxis': {'labels': {'format': '{value} 건/백만명', 'style': {'color': 'blue'}},
+        'subtitle': {'text': 'For the USA, China, Germany, France, United Kingdom, and Korea, South Confirmer'},
+        'xAxis': {'date': date_data, 'type': 'datetime', 'labels': {'format': '{value: %d. %b}'}},
+        'yAxis': {'tickInterval': 5000, 'labels': {'format': '{value} 건/백만명', 'style': {'color': 'blue'}},
                'title': {'text': '# of Cases per 1,000,000 People', 'style': {'color': 'blue'}}},
-        'tooltip': {'shared': 'true'},
         'plotOptions': {'spline': {'lineWidth': 3, 'states': {'hover': {'lineWidth': 5}}}},
-        'series': [china_rate, france_rate, germany_rate, korea_South_rate, us_rate, united_kingdom_rate]
+        'series': [china_rate, france_rate, germany_rate, korea_South_rate, us_rate, united_kingdom_rate],
+        'navigation': {'menuItemStyle': {'fontSize': '10px'}}
     }
     dump = json.dumps(chart)
 
     return render(request, 'covid1.html', {'chart': dump})
+
+def covid2(request):
+    korea_South = Covid19_2.objects.values('Korea_South').order_by('Date')
+    germany = Covid19_2.objects.values('Germany').order_by('Date')
+    united_kingdom = Covid19_2.objects.values('United_Kingdom').order_by('Date')
+    us = Covid19_2.objects.values('US').order_by('Date')
+    france = Covid19_2.objects.values('France').order_by('Date')
+    china = Covid19_2.objects.values('China').order_by('Date')
+
+    date_data = list()
+    korea_South_data = list()
+    germany_data = list()
+    united_kingdom_data = list()
+    us_data = list()
+    france_data = list()
+    china_data = list()
+
+
+    for entry in date_data:
+        date_data.append(entry['Date'])
+    for entry in korea_South:
+        korea_South_data.append(entry['Korea_South'])
+    for entry in germany:
+        germany_data.append(entry['Germany'])
+    for entry in united_kingdom:
+        united_kingdom_data.append(entry['United_Kingdom'])
+    for entry in us:
+        us_data.append(entry['US'])
+    for entry in france:
+        france_data.append(entry['France'])
+    for entry in china:
+        china_data.append(entry['China'])
+
+    korea_South_rate = {
+        'name': 'Korea, South',
+        'data': china_data,
+        'pointInterval': 24 * 3600 * 1200,
+        'color': '#045275'
+    }
+    germany_rate = {
+        'name': 'Germany',
+        'data': france_data,
+        'pointInterval': 24 * 3600 * 1200,
+        'color': '#FCDE74'
+    }
+    united_kingdom_rate = {
+        'name': 'United Kingdom',
+        'data': germany_data,
+        'pointInterval': 24 * 3600 * 1200,
+        'color': '#7C1D6F'
+    }
+    us_rate = {
+        'name': 'US',
+        'data': united_kingdom_data,
+        'pointInterval': 24 * 3600 * 1200,
+        'color': '#DC3977'
+    }
+    france_rate = {
+        'name': 'France',
+        'data': us_data,
+        'pointInterval': 24 * 3600 * 1200,
+        'color': '#7CCBA2'
+    }
+    china_rate = {
+        'name': 'China',
+        'data': korea_South_data,
+        'pointInterval': 24 * 3600 * 1200,
+        'color': '#089099',
+    }
+
+    chart = {
+        'chart': {'type': 'spline'},
+        'title': {'text': '국가별 COVID-19 회복자 발생율'},
+        'subtitle': {'text': 'For the USA, China, Germany, France, United Kingdom, and Korea, South Confirmer'},
+        'xAxis': {'date': date_data, 'type': 'datetime', 'labels': {'format': '{value: %d. %b}'}},
+        'yAxis': {'tickInterval': 2000, 'labels': {'format': '{value} 건/백만명', 'style': {'color': 'blue'}},
+               'title': {'text': '# of Cases per 1,000,000 People', 'style': {'color': 'blue'}}},
+        'plotOptions': {'spline': {'lineWidth': 3, 'states': {'hover': {'lineWidth': 5}}}},
+        'series': [china_rate, france_rate, germany_rate, korea_South_rate, us_rate, united_kingdom_rate],
+        'navigation': {'menuItemStyle': {'fontSize': '10px'}}
+    }
+    dump = json.dumps(chart)
+
+    return render(request, 'covid2.html', {'chart': dump})
+
+def covid3(request):
+    korea_South = Covid19_3.objects.values('Korea_South').order_by('Date')
+    germany = Covid19_3.objects.values('Germany').order_by('Date')
+    united_kingdom = Covid19_3.objects.values('United_Kingdom').order_by('Date')
+    us = Covid19_3.objects.values('US').order_by('Date')
+    france = Covid19_3.objects.values('France').order_by('Date')
+    china = Covid19_3.objects.values('China').order_by('Date')
+
+    date_data = list()
+    korea_South_data = list()
+    germany_data = list()
+    united_kingdom_data = list()
+    us_data = list()
+    france_data = list()
+    china_data = list()
+
+
+    for entry in date_data:
+        date_data.append(entry['Date'])
+    for entry in korea_South:
+        korea_South_data.append(entry['Korea_South'])
+    for entry in germany:
+        germany_data.append(entry['Germany'])
+    for entry in united_kingdom:
+        united_kingdom_data.append(entry['United_Kingdom'])
+    for entry in us:
+        us_data.append(entry['US'])
+    for entry in france:
+        france_data.append(entry['France'])
+    for entry in china:
+        china_data.append(entry['China'])
+
+    korea_South_rate = {
+        'name': 'Korea, South',
+        'data': china_data,
+        'pointInterval': 24 * 3600 * 1200,
+        'color': '#045275'
+    }
+    germany_rate = {
+        'name': 'Germany',
+        'data': france_data,
+        'pointInterval': 24 * 3600 * 1200,
+        'color': '#FCDE74'
+    }
+    united_kingdom_rate = {
+        'name': 'United Kingdom',
+        'data': germany_data,
+        'pointInterval': 24 * 3600 * 1200,
+        'color': '#7C1D6F'
+    }
+    us_rate = {
+        'name': 'US',
+        'data': united_kingdom_data,
+        'pointInterval': 24 * 3600 * 1200,
+        'color': '#DC3977'
+    }
+    france_rate = {
+        'name': 'France',
+        'data': us_data,
+        'pointInterval': 24 * 3600 * 1200,
+        'color': '#7CCBA2'
+    }
+    china_rate = {
+        'name': 'China',
+        'data': korea_South_data,
+        'pointInterval': 24 * 3600 * 1200,
+        'color': '#089099',
+    }
+
+    chart = {
+        'chart': {'type': 'spline'},
+        'title': {'text': '국가별 COVID-19 회복자 발생율'},
+        'subtitle': {'text': 'For the USA, China, Germany, France, United Kingdom, and Korea, South Confirmer'},
+        'xAxis': {'date': date_data, 'type': 'datetime', 'labels': {'format': '{value: %d. %b}'}},
+        'yAxis': {'tickInterval': 250, 'labels': {'format': '{value} 건/백만명', 'style': {'color': 'blue'}},
+               'title': {'text': '# of Cases per 1,000,000 People', 'style': {'color': 'blue'}}},
+        'plotOptions': {'spline': {'lineWidth': 3, 'states': {'hover': {'lineWidth': 5}}}},
+        'series': [china_rate, france_rate, germany_rate, korea_South_rate, us_rate, united_kingdom_rate],
+        'navigation': {'menuItemStyle': {'fontSize': '10px'}}
+    }
+    dump = json.dumps(chart)
+
+    return render(request, 'covid3.html', {'chart': dump})
