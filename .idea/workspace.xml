@@ -2,8 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ccad75e4-1b9d-4841-bdbd-e72bb549634f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/confirmer.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deaths.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recorver.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/905d2c9d-65a3-4f63-ad68-2718bfdd723e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/905d2c9d-65a3-4f63-ad68-2718bfdd723e.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chart/migrations/0003_covid19_1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chart/migrations/0004_confirmer.py" beforeDir="false" afterPath="$PROJECT_DIR$/chart/migrations/0004_confirmer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chart/migrations/0005_covid19_2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chart/migrations/0006_recorver.py" beforeDir="false" afterPath="$PROJECT_DIR$/chart/migrations/0006_recorver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chart/migrations/0007_covid19_3.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chart/migrations/0008_death.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chart/migrations/0009_percapita.py" beforeDir="false" afterPath="$PROJECT_DIR$/chart/migrations/0009_percapita.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chart/migrations/0010_covid_origin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chart/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/chart/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chart/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/chart/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/covid1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/covid2.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/covid3.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/percapita.csv" beforeDir="false" afterPath="$PROJECT_DIR$/percapita.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/covid1.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/covid1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/covid2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/covid2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/covid3.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/covid3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/percapita.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/percapita.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,8 +65,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -98,7 +120,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="SQLite - db.sqlite3: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@22388880" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@503c61c2" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
             </expand>
             <select />
@@ -133,7 +155,10 @@
       <workItem from="1592267556837" duration="3734000" />
       <workItem from="1592271343859" duration="237000" />
       <workItem from="1592271600863" duration="3465000" />
-      <workItem from="1592299584211" duration="19840000" />
+      <workItem from="1592299584211" duration="20257000" />
+      <workItem from="1592359365392" duration="4242000" />
+      <workItem from="1592389875013" duration="9940000" />
+      <workItem from="1592401630252" duration="6559000" />
     </task>
     <servers />
   </component>
@@ -141,6 +166,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="233" y="2" key="#Notifications" timestamp="1592391649210">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="2" key="#Notifications/0.0.1280.680@0.0.1280.680" timestamp="1592391649210" />
     <state x="449" y="3" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590991924997">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -149,29 +178,29 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="599" y="97" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1592231406094" />
-    <state width="845" height="163" key="GridCell.Tab.0.bottom" timestamp="1591614073981">
+    <state width="845" height="163" key="GridCell.Tab.0.bottom" timestamp="1592409479398">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="845" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1591614073981" />
-    <state width="845" height="163" key="GridCell.Tab.0.center" timestamp="1591614073980">
+    <state width="845" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1592409479398" />
+    <state width="845" height="163" key="GridCell.Tab.0.center" timestamp="1592409479398">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="845" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1591614073980" />
-    <state width="845" height="163" key="GridCell.Tab.0.left" timestamp="1591614073980">
+    <state width="845" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1592409479398" />
+    <state width="845" height="163" key="GridCell.Tab.0.left" timestamp="1592409479397">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="845" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1591614073980" />
-    <state width="845" height="163" key="GridCell.Tab.0.right" timestamp="1591614073981">
+    <state width="845" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1592409479397" />
+    <state width="845" height="163" key="GridCell.Tab.0.right" timestamp="1592409479398">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="845" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1591614073981" />
+    <state width="845" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1592409479398" />
     <state x="515" y="233" width="322" height="226" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1592221967543">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="515" y="233" width="322" height="226" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1280.680@0.0.1280.680" timestamp="1592221967543" />
-    <state x="345" y="169" key="com.intellij.ide.util.TipDialog" timestamp="1592299584061">
+    <state x="345" y="169" key="com.intellij.ide.util.TipDialog" timestamp="1592401630241">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="345" y="169" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1592299584061" />
+    <state x="345" y="169" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1592401630241" />
   </component>
 </project>

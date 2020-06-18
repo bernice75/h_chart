@@ -31,39 +31,34 @@ class Passenger(models.Model):  # 승객 모델
     def __str__(self):
         return self.name
 
-class Covid19_1(models.Model) :
-    Date = models.DateTimeField()
+class Covid19_co(models.Model) :
+    Date = models.CharField(max_length=100)
     Korea_South = models.FloatField(null=True)
     Germany = models.FloatField(null=True)
     United_Kingdom = models.FloatField(null=True)
     US = models.FloatField(null=True)
     France = models.FloatField(null=True)
-    China = models.FloatField(null=True)
 
-class Covid19_2(models.Model) :
-    Date = models.DateTimeField()
+class Covid19_re(models.Model) :
+    Date = models.CharField(max_length=100)
     Korea_South = models.FloatField(null=True)
     Germany = models.FloatField(null=True)
     United_Kingdom = models.FloatField(null=True)
     US = models.FloatField(null=True)
     France = models.FloatField(null=True)
-    China = models.FloatField(null=True)
 
-class Covid19_3(models.Model) :
-     Date = models.DateTimeField()
+class Covid19_de(models.Model) :
+     Date = models.CharField(max_length=100)
      Korea_South = models.FloatField(null=True)
      Germany = models.FloatField(null=True)
      United_Kingdom = models.FloatField(null=True)
      US = models.FloatField(null=True)
      France = models.FloatField(null=True)
-     China = models.FloatField(null=True)
-
 
 class Percapita(models.Model):
-    Date = models.DateTimeField()
+    Date = models.CharField(max_length=100)
     Korea_South = models.FloatField(null=True)
     Germany = models.FloatField(null=True)
     United_Kingdom = models.FloatField(null=True)
     US = models.FloatField(null=True)
     France = models.FloatField(null=True)
-    China = models.FloatField(null=True)

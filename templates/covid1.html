@@ -6,9 +6,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.18.0/css/mdb.min.css" rel="stylesheet">
 
 	<link rel="stylesheet" href="/static/style.css">
-    <script src="https://code.highcharts.com/highcharts.src.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+
     <title>Django 코로나-19 하이차트 기말과제</title>
 </head>
 <body>
@@ -17,6 +15,7 @@
         <div id="container"></div>
         <script src="https://code.highcharts.com/highcharts.src.js"></script>
         <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/series-label.js"></script>
         <script>
             Highcharts.chart('container', {{ chart|safe }});
         </script>
