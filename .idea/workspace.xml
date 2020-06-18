@@ -2,30 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ccad75e4-1b9d-4841-bdbd-e72bb549634f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/confirmer.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deaths.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/recorver.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/905d2c9d-65a3-4f63-ad68-2718bfdd723e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/905d2c9d-65a3-4f63-ad68-2718bfdd723e.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/migrations/0003_covid19_1.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/migrations/0004_confirmer.py" beforeDir="false" afterPath="$PROJECT_DIR$/chart/migrations/0004_confirmer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/migrations/0005_covid19_2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/migrations/0006_recorver.py" beforeDir="false" afterPath="$PROJECT_DIR$/chart/migrations/0006_recorver.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/migrations/0007_covid19_3.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/migrations/0008_death.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/migrations/0009_percapita.py" beforeDir="false" afterPath="$PROJECT_DIR$/chart/migrations/0009_percapita.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/migrations/0010_covid_origin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/chart/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/chart/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/percapita.csv" beforeDir="false" afterPath="$PROJECT_DIR$/percapita.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/covid1.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/covid1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/covid2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/covid2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/covid3.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/covid3.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/percapita.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/percapita.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,6 +138,8 @@
       <workItem from="1592359365392" duration="4242000" />
       <workItem from="1592389875013" duration="9940000" />
       <workItem from="1592401630252" duration="6559000" />
+      <workItem from="1592446988511" duration="16000" />
+      <workItem from="1592447166918" duration="756000" />
     </task>
     <servers />
   </component>
@@ -198,9 +179,9 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="515" y="233" width="322" height="226" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1280.680@0.0.1280.680" timestamp="1592221967543" />
-    <state x="345" y="169" key="com.intellij.ide.util.TipDialog" timestamp="1592401630241">
+    <state x="345" y="169" key="com.intellij.ide.util.TipDialog" timestamp="1592447177994">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="345" y="169" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1592401630241" />
+    <state x="345" y="169" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1592447177994" />
   </component>
 </project>
