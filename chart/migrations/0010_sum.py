@@ -10,26 +10,26 @@ United_Kingdom = 5
 US =  4
 France = 1
 
-def add_avg(apps, schema_editor):
-    Percapita = apps.get_model('chart', 'Percapita')
-    csv_file = os.path.join(settings.BASE_DIR, 'percapita.csv')
+def add_sum(apps, schema_editor):
+    Sum_Covid = apps.get_model('chart', 'Sum_covid')
+    csv_file = os.path.join(settings.BASE_DIR, 'sum.csv')
     with open(csv_file) as dataset:
         reader = csv.reader(dataset)
         next(reader)
         for entry in reader:
-            Percapita.objects.create(
+            Sum_Covid.objects.create(
                 Date=entry[Date],
-                Korea_South=entry[Korea_South],
+                France=entry[France],
                 Germany=entry[Germany],
-                United_Kingdom=entry[United_Kingdom],
+                Korea_South=entry[Korea_South],
                 US=entry[US],
-                France=entry[France]
+                United_Kingdom=entry[United_Kingdom]
             )
 
 class Migration(migrations.Migration):
     dependencies = [                            # 선행 관계
-        ('chart', '0009_percapita'),              # app_label, preceding migration file
+        ('chart', '0009_sum_covid'),              # app_label, preceding migration file
     ]
     operations = [                              # 작업
-        migrations.RunPython(add_avg),   # add_passengers 함수를 호출
+        migrations.RunPython(add_sum),   # add_passengers 함수를 호출
     ]

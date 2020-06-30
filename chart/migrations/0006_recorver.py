@@ -2,13 +2,13 @@ import csv
 import os
 from django.db import migrations
 from django.conf import settings
-# Date,"Korea, South",Germany,United Kingdom,US,France
+# Date,France,Germany,"Korea, South",US,United Kingdom
 Date = 0
-Korea_South = 1
+Korea_South = 3
 Germany = 2
-United_Kingdom = 3
+United_Kingdom = 5
 US =  4
-France = 5
+France = 1
 
 def add_recorver(apps, schema_editor):
     Recorver = apps.get_model('chart', 'Covid19_re')
@@ -19,11 +19,11 @@ def add_recorver(apps, schema_editor):
         for entry in reader:
             Recorver.objects.create(
                 Date=entry[Date],
-                Korea_South=entry[Korea_South],
+                France=entry[France],
                 Germany=entry[Germany],
-                United_Kingdom=entry[United_Kingdom],
+                Korea_South=entry[Korea_South],
                 US=entry[US],
-                France=entry[France]
+                United_Kingdom=entry[United_Kingdom]
             )
 
 class Migration(migrations.Migration):
